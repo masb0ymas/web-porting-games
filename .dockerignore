@@ -1,0 +1,13 @@
+node_modules
+.git
+.github
+dist
+.next
+.vinext
+.env
+.env.*
+!.env.example
+# Docs are not build inputs; the deploy folder hosts the Dockerfile itself.
+design-system
+deploy
+*.log
