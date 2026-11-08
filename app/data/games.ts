@@ -71,6 +71,7 @@ export const GAMES: Game[] = [
     cover: "/covers/nfs-carbon.jpg",
     coverLandscape: "/covers/nfs-carbon-wide.png",
     art: { from: "#7f1d1d", to: "#18181b", glow: "#eab308" },
+    favorite: false
   },
   {
     id: "elden-ring",
@@ -126,6 +127,7 @@ export const GAMES: Game[] = [
     status: "new",
     featured: true,
     art: { from: "#44403c", to: "#1c1917", glow: "#fda4af" },
+    favorite: false
   },
   {
     id: "cyberpunk-2077",
@@ -138,6 +140,7 @@ export const GAMES: Game[] = [
     lastPlayed: "3 days ago",
     status: "recent",
     art: { from: "#0e7490", to: "#083344", glow: "#facc15" },
+    favorite: false
   },
   {
     id: "stardew-valley",
@@ -163,6 +166,7 @@ export const GAMES: Game[] = [
     lastPlayed: "5 days ago",
     status: "recent",
     art: { from: "#155e75", to: "#083344", glow: "#67e8f9" },
+    favorite: false
   },
   {
     id: "doom-dark-ages",
@@ -175,6 +179,7 @@ export const GAMES: Game[] = [
     lastPlayed: "New arrival",
     status: "new",
     art: { from: "#991b1b", to: "#450a0a", glow: "#fbbf24" },
+    favorite: false
   },
   {
     id: "disco-elysium",
@@ -187,6 +192,7 @@ export const GAMES: Game[] = [
     lastPlayed: "1 month ago",
     status: "complete",
     art: { from: "#374151", to: "#111827", glow: "#d1d5db" },
+    favorite: false
   },
   {
     id: "sekiro",
@@ -212,6 +218,7 @@ export const GAMES: Game[] = [
     lastPlayed: "3 weeks ago",
     status: "complete",
     art: { from: "#92400e", to: "#451a03", glow: "#fcd34d" },
+    favorite: false
   },
   {
     id: "celeste",
@@ -224,6 +231,7 @@ export const GAMES: Game[] = [
     lastPlayed: "1 month ago",
     status: "complete",
     art: { from: "#1d4ed8", to: "#172554", glow: "#93c5fd" },
+    favorite: false
   },
   {
     id: "witcher-3",
@@ -262,6 +270,7 @@ export const GAMES: Game[] = [
     lastPlayed: "3 months ago",
     status: "complete",
     art: { from: "#ca8a04", to: "#422006", glow: "#fde047" },
+    favorite: false
   },
   {
     id: "blue-prince",
@@ -274,6 +283,7 @@ export const GAMES: Game[] = [
     lastPlayed: "New arrival",
     status: "new",
     art: { from: "#0369a1", to: "#082f49", glow: "#7dd3fc" },
+    favorite: false
   },
 ];
 

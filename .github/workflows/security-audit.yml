@@ -1,0 +1,32 @@
+# Dependency vulnerability scan. pnpm audit reports the npm dependency tree,
+# running on pushes and pull requests, and weekly, so a newly published
+# advisory surfaces without a push.
+name: Security Audit
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+  schedule:
+    # 03:00 UTC every Monday.
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  npm-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Scan npm dependencies
+        run: pnpm audit --prod
