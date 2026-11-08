@@ -2,6 +2,15 @@
   "name": "port-to-web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "vinext start",
+    "release": "release-it",
+    "release:prepare": "release-it --ci --no-git.tag --no-git.push --no-github.release",
+    "release:publish": "release-it --ci --no-increment --no-git.commit --no-git.push --github.release"
+  },
   "packageManager": "pnpm@11.27.1",
   "dependencies": {
     "react": "latest",
@@ -10,20 +19,16 @@
     "vinext": "^1.4.4"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "12.0.2",
     "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@vitejs/plugin-react": "^6.2.1",
     "@vitejs/plugin-rsc": "^0.5.39",
+    "release-it": "21.1.0",
     "tailwindcss": "latest",
     "typescript": "latest",
     "vite": "^8.3.6"
-  },
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "start": "vinext start"
   }
 }
