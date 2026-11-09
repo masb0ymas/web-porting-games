@@ -3,8 +3,6 @@ import { GamepadIcon } from "./icons";
 const NAV_ITEMS = [
   { label: "Library", href: "#library", active: true },
   { label: "Discover", href: "#discover" },
-  { label: "Collections", href: "#collections" },
-  { label: "Stats", href: "#stats" },
 ];
 
 export function Header() {

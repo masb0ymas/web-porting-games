@@ -25,6 +25,7 @@ export function HeroFeatured({ games }: { games: Game[] }) {
               <img
                 src={hero.coverLandscape}
                 alt={`Cover art ${hero.title}`}
+                fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover"
               />
               {/* scrim so overlay text stays readable on real art */}

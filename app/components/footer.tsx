@@ -1,6 +1,10 @@
 import { GamepadIcon } from "./icons";
 
-const FOOTER_LINKS = ["About", "Collections", "Stats", "GitHub"];
+const FOOTER_LINKS = [
+  { label: "Library", href: "#library" },
+  { label: "Discover", href: "#discover" },
+  { label: "GitHub", href: "https://github.com/masb0ymas/web-porting-games" },
+];
 
 export function Footer() {
   return (
@@ -18,10 +22,10 @@ export function Footer() {
 
           <nav aria-label="Footer">
             <ul className="flex flex-wrap gap-6">
-              {FOOTER_LINKS.map((label) => (
+              {FOOTER_LINKS.map(({ label, href }) => (
                 <li key={label}>
                   <a
-                    href="#top"
+                    href={href}
                     className="cursor-pointer text-sm text-muted transition-colors duration-200 hover:text-accent"
                   >
                     {label}

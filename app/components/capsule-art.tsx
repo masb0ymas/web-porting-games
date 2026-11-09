@@ -57,7 +57,9 @@ export function CapsuleArt({
       )}
 
       {!game.cover && (
-        <h3
+        // Decorative wordmark — the real title heading lives on the card, so keep it out of the outline.
+        <p
+          aria-hidden
           className={`relative mt-auto flex flex-col font-display uppercase leading-[1.05] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] ${
             compact ? "text-[9px] leading-[1.25] break-words" : "text-xl sm:text-2xl"
           } ${infoInset ? "mb-[76px]" : ""}`}
@@ -65,7 +67,7 @@ export function CapsuleArt({
           {words.map((word) => (
             <span key={word}>{word}</span>
           ))}
-        </h3>
+        </p>
       )}
     </div>
   );
