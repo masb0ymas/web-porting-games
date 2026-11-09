@@ -1,0 +1,5 @@
+# pnpm 11 settings live here (package.json's "pnpm" field is no longer read).
+# Security override: fflate <0.7.5 has a ZIP64 infinite-loop advisory
+# (GHSA-px8p-9vwx-vf98) via vinext > @vercel/og > satori.
+overrides:
+  "fflate@<0.7.5": ^0.7.5
