@@ -1,6 +1,6 @@
 {
   "name": "port-to-web",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "release:prepare": "release-it --ci --no-git.tag --no-git.push --no-github.release",
     "release:publish": "release-it --ci --no-increment --no-git.commit --no-git.push --github.release"
   },
-  "packageManager": "pnpm@11.27.1",
+  "packageManager": "pnpm@12.18.0",
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
