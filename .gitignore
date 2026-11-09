@@ -4,3 +4,8 @@ node_modules
 next-env.d.ts
 /dist/
 .vinext/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
+.omc/
+.ignore

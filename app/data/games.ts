@@ -18,10 +18,14 @@ export interface Game {
   status: GameStatus;
   favorite: boolean;
   featured?: boolean;
+  /** Shows in the "Featured & Recommended" side list (in data order). */
+  recommended?: boolean;
   /** Vertical cover for list/grid capsules (served from /public/covers). Falls back to generated art. */
   cover?: string;
   /** Horizontal cover for featured-mode banner only. List items always use the vertical `cover`. */
   coverLandscape?: string;
+  /** Where this game can be played on the web (opens in a new tab). */
+  link?: string;
   /** Capsule art colors (no external images — art is generated with CSS) */
   art: { from: string; to: string; glow: string };
 }
@@ -38,8 +42,10 @@ export const GAMES: Game[] = [
     lastPlayed: "Yesterday",
     status: "recent",
     favorite: true,
+    recommended: true,
     cover: "/covers/nfs-underground-2.webp",
-    coverLandscape: "/covers/nfs-underground-2-wide.jpg",
+    coverLandscape: "/covers/nfs-underground-2-wide.webp",
+    link: "https://nfsu2.xyz/",
     art: { from: "#0369a1", to: "#0c2d48", glow: "#f97316" },
   },
   {
@@ -54,8 +60,10 @@ export const GAMES: Game[] = [
     status: "recent",
     favorite: true,
     featured: true,
-    cover: "/covers/nfs-most-wanted-2005.jpg",
-    coverLandscape: "/covers/nfs-most-wanted-2005-bg.jpg",
+    recommended: true,
+    cover: "/covers/nfs-most-wanted-2005.webp",
+    coverLandscape: "/covers/nfs-most-wanted-2005-bg.webp",
+    link: "https://web.nfsmwo.com/",
     art: { from: "#1f2937", to: "#0b1120", glow: "#f97316" },
   },
   {
@@ -68,8 +76,10 @@ export const GAMES: Game[] = [
     hours: 28,
     lastPlayed: "2 months ago",
     status: "backlog",
-    cover: "/covers/nfs-carbon.jpg",
-    coverLandscape: "/covers/nfs-carbon-wide.png",
+    recommended: true,
+    cover: "/covers/nfs-carbon.webp",
+    coverLandscape: "/covers/nfs-carbon-wide.webp",
+    link: "https://nfscrb.xyz/",
     art: { from: "#7f1d1d", to: "#18181b", glow: "#eab308" },
     favorite: false
   },

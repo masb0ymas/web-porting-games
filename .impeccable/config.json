@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-11-09T01:07:41.386Z",
+        "reason": "claude: Montserrat is the existing project font (committed app/globals.css @theme --font-display/--font-body); SEO fix only moved its loading from CSS @import to <link> in layout.tsx"
+      }
+    ]
+  }
+}

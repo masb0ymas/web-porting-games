@@ -4,7 +4,9 @@ import { ClockIcon, PlayIcon, StarIcon } from "./icons";
 
 export function HeroFeatured({ games }: { games: Game[] }) {
   const hero = games.find((g) => g.featured) ?? games[0];
-  const side = games.filter((g) => g.featured && g.id !== hero.id).slice(0, 3);
+  // The recommended side list is curated via the `recommended` flag; the hero
+  // may also appear here (it stays first in the list, like Steam does).
+  const side = games.filter((g) => g.recommended).slice(0, 3);
 
   return (
     <section id="discover" className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 sm:pt-10">
@@ -23,6 +25,7 @@ export function HeroFeatured({ games }: { games: Game[] }) {
               <img
                 src={hero.coverLandscape}
                 alt={`Cover art ${hero.title}`}
+                fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover"
               />
               {/* scrim so overlay text stays readable on real art */}
@@ -70,14 +73,27 @@ export function HeroFeatured({ games }: { games: Game[] }) {
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                aria-label={`Play ${hero.title}`}
-                className="flex h-11 cursor-pointer items-center gap-2 rounded-md bg-play px-5 font-semibold uppercase tracking-wider text-play-bright transition-colors duration-200 hover:bg-play-bright hover:text-abyss"
-              >
-                <PlayIcon className="h-4 w-4 fill-current" />
-                Play Now
-              </button>
+              {hero.link ? (
+                <a
+                  href={hero.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Play ${hero.title} (opens in a new tab)`}
+                  className="flex h-11 cursor-pointer items-center gap-2 rounded-md bg-play px-5 font-semibold uppercase tracking-wider text-play-bright transition-colors duration-200 hover:bg-play-bright hover:text-abyss"
+                >
+                  <PlayIcon className="h-4 w-4 fill-current" />
+                  Play Now
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  aria-label={`Play ${hero.title}`}
+                  className="flex h-11 cursor-pointer items-center gap-2 rounded-md bg-play px-5 font-semibold uppercase tracking-wider text-play-bright transition-colors duration-200 hover:bg-play-bright hover:text-abyss"
+                >
+                  <PlayIcon className="h-4 w-4 fill-current" />
+                  Play Now
+                </button>
+              )}
               <span className="flex items-center gap-1.5 text-sm text-white/80">
                 <StarIcon className="h-4 w-4 text-play-bright" />
                 {hero.rating.toFixed(1)}
@@ -95,7 +111,10 @@ export function HeroFeatured({ games }: { games: Game[] }) {
           {side.map((game) => (
             <a
               key={game.id}
-              href="#library"
+              href={game.link ?? "#library"}
+              target={game.link ? "_blank" : undefined}
+              rel={game.link ? "noreferrer" : undefined}
+              aria-label={game.link ? `${game.title} (opens in a new tab)` : undefined}
               className="group flex cursor-pointer gap-3 rounded-xl bg-steel-deep/80 p-3 ring-1 ring-white/5 transition-colors duration-200 hover:bg-steel/60 hover:ring-accent/40"
             >
               <div className="h-24 w-[4.5rem] shrink-0 overflow-hidden rounded-md">

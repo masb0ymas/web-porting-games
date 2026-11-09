@@ -1,10 +1,8 @@
-import { GamepadIcon, PlusIcon } from "./icons";
+import { GamepadIcon } from "./icons";
 
 const NAV_ITEMS = [
   { label: "Library", href: "#library", active: true },
   { label: "Discover", href: "#discover" },
-  { label: "Collections", href: "#collections" },
-  { label: "Stats", href: "#stats" },
 ];
 
 export function Header() {
@@ -39,23 +37,6 @@ export function Header() {
             </li>
           ))}
         </ul>
-
-        <div className="ml-auto flex items-center gap-3">
-          <button
-            type="button"
-            className="flex h-10 cursor-pointer items-center gap-1.5 rounded-md border border-accent/40 bg-accent/10 px-3.5 text-sm font-semibold text-accent transition-colors duration-200 hover:border-accent hover:bg-accent/20 hover:text-white"
-          >
-            <PlusIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">Add Game</span>
-          </button>
-          <button
-            type="button"
-            aria-label="Open profile menu"
-            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-steel text-sm font-bold text-white transition-colors duration-200 hover:bg-accent hover:text-abyss"
-          >
-            MB
-          </button>
-        </div>
       </nav>
     </header>
   );

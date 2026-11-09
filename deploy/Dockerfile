@@ -7,8 +7,9 @@ FROM node:24-alpine AS build
 
 WORKDIR /build
 
-# The lockfile must be present before install so pnpm resolves the frozen graph.
-COPY package.json pnpm-lock.yaml ./
+# The lockfile must be present before install so pnpm resolves the frozen graph;
+# pnpm-workspace.yaml carries the overrides the lockfile was resolved with.
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 RUN corepack enable && pnpm install --frozen-lockfile
 
