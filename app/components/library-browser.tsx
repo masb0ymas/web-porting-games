@@ -43,14 +43,27 @@ function GameCard({ game }: { game: Game }) {
             {game.lastPlayed} · {game.hours}h
           </p>
           <div className="mt-2 flex items-center gap-2 md:opacity-0 md:transition-opacity md:duration-200 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
-            <button
-              type="button"
-              aria-label={`Play ${game.title}`}
-              className="flex h-9 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded bg-play text-xs font-bold uppercase tracking-wider text-play-bright transition-colors duration-200 hover:bg-play-bright hover:text-abyss"
-            >
-              <PlayIcon className="h-3 w-3 fill-current" />
-              Play
-            </button>
+            {game.link ? (
+              <a
+                href={game.link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Play ${game.title} (opens in a new tab)`}
+                className="flex h-9 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded bg-play text-xs font-bold uppercase tracking-wider text-play-bright transition-colors duration-200 hover:bg-play-bright hover:text-abyss"
+              >
+                <PlayIcon className="h-3 w-3 fill-current" />
+                Play
+              </a>
+            ) : (
+              <button
+                type="button"
+                aria-label={`Play ${game.title}`}
+                className="flex h-9 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded bg-play text-xs font-bold uppercase tracking-wider text-play-bright transition-colors duration-200 hover:bg-play-bright hover:text-abyss"
+              >
+                <PlayIcon className="h-3 w-3 fill-current" />
+                Play
+              </button>
+            )}
             <span
               className="flex h-9 items-center gap-1 rounded bg-black/40 px-2.5 text-xs font-semibold text-white/85"
               aria-label={`Rated ${game.rating} out of 10`}
