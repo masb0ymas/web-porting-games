@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file. Versions follow the git tags (`v*`); Docker images are published to ghcr.io with the same version.
 
 
+## [0.2.0](https://github.com/masb0ymas/web-porting-games/compare/v0.1.0...v0.2.0) (2026-11-10)
+
+### Features
+
+* add Skate 3 and four GTA ports, rebrand to RecompGames ([475cac6](https://github.com/masb0ymas/web-porting-games/commit/475cac6994ac570d8c880a6930df052ce12bf612))
+* catalog only web-playable games with rotating featured banner ([5aa1f6a](https://github.com/masb0ymas/web-porting-games/commit/5aa1f6ab7f4702598606f71955ea5d1ba88cf55f))
+
 ## 0.1.0 (2026-11-09)
 
 ### Features
