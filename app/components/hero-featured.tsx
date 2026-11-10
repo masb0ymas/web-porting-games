@@ -210,13 +210,13 @@ export function HeroFeatured({ games }: { games: Game[] }) {
         </article>
 
         {/* Side featured list — same rotation pool, active slide highlighted */}
-        <div className="grid content-start gap-2" aria-label="Featured rotation">
+        <div className="grid min-w-0 content-start gap-2" aria-label="Featured rotation">
           {pool.map((game, i) => {
             const isActive = i === index;
             return (
               <div
                 key={game.id}
-                className={`flex items-center gap-3 rounded-xl ring-1 transition-colors duration-300 ${
+                className={`flex min-w-0 items-center gap-3 overflow-hidden rounded-xl ring-1 transition-colors duration-300 ${
                   isActive ? "bg-steel/60 ring-accent/40" : "bg-steel-deep/80 ring-white/5"
                 }`}
               >

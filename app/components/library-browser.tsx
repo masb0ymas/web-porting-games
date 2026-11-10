@@ -58,11 +58,11 @@ function GameCard({ game, index }: { game: Game; index: number }) {
         </div>
       </div>
       <div className="mt-2 px-0.5">
-        <h3 className="truncate text-sm font-semibold text-body-text transition-colors duration-200 group-hover:text-white">
+        <h3 className="line-clamp-2 text-sm font-semibold leading-snug text-body-text transition-colors duration-200 group-hover:text-white">
           {game.title}
         </h3>
-        <p className="truncate text-xs text-muted">
-          {game.year} · {game.genres.join(" · ")}
+        <p className="mt-0.5 truncate text-xs leading-snug text-muted">
+          {game.year} · {game.genres.slice(0, 2).join(" · ")}
         </p>
       </div>
     </article>
@@ -77,11 +77,14 @@ export function LibraryBrowser({ games }: { games: Game[] }) {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     const matched = games.filter((g) => {
+      // Words, not substrings: "ea" must hit the studio, not "San Andreas".
+      const words = [g.title, g.studio, ...g.genres, ...(g.keywords ?? [])]
+        .join(" ")
+        .toLowerCase()
+        .split(/[^a-z0-9]+/);
       const byQuery =
         q === "" ||
-        g.title.toLowerCase().includes(q) ||
-        g.studio.toLowerCase().includes(q) ||
-        g.genres.some((genre) => genre.toLowerCase().includes(q));
+        (q.includes(" ") ? words.join(" ").includes(q) : words.some((w) => w.startsWith(q)));
       const byFilter = filter === "all" || g.favorite;
       return byQuery && byFilter;
     });
@@ -170,7 +173,7 @@ export function LibraryBrowser({ games }: { games: Game[] }) {
       {filtered.length > 0 ? (
         <div
           id="library-grid"
-          className="grid grid-cols-2 gap-x-3 gap-y-6 md:grid-cols-3 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 xl:grid-cols-5"
         >
           {filtered.map((game, index) => (
             <GameCard key={game.id} game={game} index={index} />

@@ -24,6 +24,8 @@ export interface Game {
   coverLandscape?: string;
   /** Where this game can be played on the web (opens in a new tab). */
   link: string;
+  /** Extra search terms players type but that never appear in the title (abbreviations, series). */
+  keywords?: string[];
   /** Capsule art colors (no external images — art is generated with CSS) */
   art: { from: string; to: string; glow: string };
 }
@@ -41,6 +43,7 @@ export const GAMES: Game[] = [
     cover: "/covers/nfs-underground-2.webp",
     coverLandscape: "/covers/nfs-underground-2-wide.webp",
     link: "https://nfsu2.xyz/",
+    keywords: ["nfs", "nfsu2", "underground"],
     art: { from: "#0369a1", to: "#0c2d48", glow: "#f97316" },
   },
   {
@@ -56,6 +59,7 @@ export const GAMES: Game[] = [
     cover: "/covers/nfs-most-wanted-2005.webp",
     coverLandscape: "/covers/nfs-most-wanted-2005-bg.webp",
     link: "https://web.nfsmwo.com/",
+    keywords: ["nfs", "nfsmw", "police"],
     art: { from: "#1f2937", to: "#0b1120", glow: "#f97316" },
   },
   {
@@ -70,6 +74,7 @@ export const GAMES: Game[] = [
     cover: "/covers/nfs-carbon.webp",
     coverLandscape: "/covers/nfs-carbon-wide.webp",
     link: "https://nfscrb.xyz/",
+    keywords: ["nfs", "carbon"],
     art: { from: "#7f1d1d", to: "#18181b", glow: "#eab308" },
   },
   {
@@ -84,6 +89,78 @@ export const GAMES: Game[] = [
     cover: "/covers/pes-2013.webp",
     coverLandscape: "/covers/pes-2013-wide.webp",
     link: "https://pes13.optijuegos.net/pes13",
+    keywords: ["pes", "soccer", "pro evo"],
     art: { from: "#166534", to: "#052e16", glow: "#4ade80" },
+  },
+  {
+    id: "skate-3",
+    title: "Skate 3",
+    studio: "EA Black Box",
+    year: 2010,
+    genres: ["Skateboarding", "Sports", "Open World"],
+    rating: 8.0,
+    favorite: false,
+    recommended: true,
+    cover: "/covers/skate-3.webp",
+    coverLandscape: "/covers/skate-3-wide.webp",
+    link: "https://skate3browser.org/",
+    keywords: ["skate", "skating", "ea"],
+    art: { from: "#c2410c", to: "#1c1917", glow: "#fb923c" },
+  },
+  {
+    id: "gta-3",
+    title: "Grand Theft Auto III",
+    studio: "DMA Design",
+    year: 2001,
+    genres: ["Action", "Open World", "Crime"],
+    rating: 8.7,
+    favorite: false,
+    cover: "/covers/gta-3.webp",
+    coverLandscape: "/covers/gta-3-wide.webp",
+    link: "https://pixr.dev/gta/gta3/",
+    keywords: ["gta", "gta3", "gta 3", "grand theft auto"],
+    art: { from: "#1e3a8a", to: "#171717", glow: "#ef4444" },
+  },
+  {
+    id: "gta-vice-city",
+    title: "Grand Theft Auto: Vice City",
+    studio: "Rockstar North",
+    year: 2002,
+    genres: ["Action", "Open World", "Crime"],
+    rating: 9.2,
+    favorite: false,
+    cover: "/covers/gta-vice-city.webp",
+    coverLandscape: "/covers/gta-vice-city-wide.webp",
+    link: "https://pixr.dev/gta/gtavc/",
+    keywords: ["gta", "gtavc", "vice city"],
+    art: { from: "#be185d", to: "#0f172a", glow: "#f472b6" },
+  },
+  {
+    id: "gta-san-andreas",
+    title: "Grand Theft Auto: San Andreas",
+    studio: "Rockstar North",
+    year: 2004,
+    genres: ["Action", "Open World", "Crime"],
+    rating: 9.5,
+    favorite: false,
+    cover: "/covers/gta-san-andreas.webp",
+    coverLandscape: "/covers/gta-san-andreas-wide.webp",
+    link: "https://pixr.dev/gta/gtasa/",
+    keywords: ["gta", "gtasa", "san andreas"],
+    art: { from: "#a16207", to: "#0c0a09", glow: "#facc15" },
+  },
+  {
+    id: "gta-v",
+    title: "Grand Theft Auto V",
+    studio: "Rockstar North",
+    year: 2013,
+    genres: ["Action", "Open World", "Crime"],
+    rating: 9.7,
+    favorite: false,
+    cover: "/covers/gta-v.webp",
+    coverLandscape: "/covers/gta-v-wide.webp",
+    link: "https://playgta5.com/",
+    keywords: ["gta", "gta5", "gta v", "gta 5", "five"],
+    art: { from: "#166534", to: "#0b1120", glow: "#22c55e" },
   },
 ];

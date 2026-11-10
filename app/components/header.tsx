@@ -14,14 +14,14 @@ export function Header() {
       >
         <a
           href="#top"
-          aria-label="Montara Games — home"
+          aria-label="RecompGames — home"
           className="flex shrink-0 cursor-pointer items-center gap-2 sm:gap-2.5"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent/25 to-steel text-accent sm:h-9 sm:w-9">
             <GamepadIcon className="h-4 w-4 sm:h-5 sm:w-5" />
           </span>
           <span className="font-display text-xs tracking-wide text-white sm:text-lg">
-            MONTARA<span className="text-accent">GAMES</span>
+            RECOMP<span className="text-accent">GAMES</span>
           </span>
         </a>
 

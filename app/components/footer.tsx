@@ -16,7 +16,7 @@ export function Footer() {
               <GamepadIcon className="h-4 w-4" />
             </span>
             <span className="font-display text-sm tracking-wide text-white">
-              MONTARA<span className="text-accent">GAMES</span>
+              RECOMP<span className="text-accent">GAMES</span>
             </span>
           </div>
 
