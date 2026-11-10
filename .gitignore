@@ -9,3 +9,8 @@ next-env.d.ts
 /graft/
 .omc/
 .ignore
+.agents/
+.cursor/
+.gemini/
+.opencode/
+opencode.json

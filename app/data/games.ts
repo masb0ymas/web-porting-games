@@ -1,9 +1,10 @@
 /**
  * Mock game collection data for the landing page demo.
  * Replace with real data source (API / DB) when wiring up the actual collection.
+ *
+ * Every entry must be playable in the browser: `link` is required, and there is
+ * no play-time bookkeeping — this is a catalog of ports, not a play tracker.
  */
-
-export type GameStatus = "recent" | "new" | "complete" | "backlog";
 
 export interface Game {
   id: string;
@@ -13,19 +14,16 @@ export interface Game {
   genres: string[];
   /** Metacritic-style score out of 10 */
   rating: number;
-  hours: number;
-  lastPlayed: string;
-  status: GameStatus;
   favorite: boolean;
   featured?: boolean;
-  /** Shows in the "Featured & Recommended" side list (in data order). */
+  /** Shows in the "Featured & Recommended" rotation (in data order). */
   recommended?: boolean;
-  /** Vertical cover for list/grid capsules (served from /public/covers). Falls back to generated art. */
+  /** Vertical cover for list/grid capsules (served from /public/covers). */
   cover?: string;
   /** Horizontal cover for featured-mode banner only. List items always use the vertical `cover`. */
   coverLandscape?: string;
   /** Where this game can be played on the web (opens in a new tab). */
-  link?: string;
+  link: string;
   /** Capsule art colors (no external images — art is generated with CSS) */
   art: { from: string; to: string; glow: string };
 }
@@ -38,9 +36,6 @@ export const GAMES: Game[] = [
     year: 2004,
     genres: ["Racing", "Tuning", "Open World"],
     rating: 8.6,
-    hours: 47,
-    lastPlayed: "Yesterday",
-    status: "recent",
     favorite: true,
     recommended: true,
     cover: "/covers/nfs-underground-2.webp",
@@ -55,9 +50,6 @@ export const GAMES: Game[] = [
     year: 2005,
     genres: ["Racing", "Police Chase"],
     rating: 9.0,
-    hours: 63,
-    lastPlayed: "3 days ago",
-    status: "recent",
     favorite: true,
     featured: true,
     recommended: true,
@@ -73,233 +65,25 @@ export const GAMES: Game[] = [
     year: 2006,
     genres: ["Racing", "Canyon Duels"],
     rating: 7.8,
-    hours: 28,
-    lastPlayed: "2 months ago",
-    status: "backlog",
+    favorite: false,
     recommended: true,
     cover: "/covers/nfs-carbon.webp",
     coverLandscape: "/covers/nfs-carbon-wide.webp",
     link: "https://nfscrb.xyz/",
     art: { from: "#7f1d1d", to: "#18181b", glow: "#eab308" },
-    favorite: false
   },
   {
-    id: "elden-ring",
-    title: "Elden Ring",
-    studio: "FromSoftware",
-    year: 2022,
-    genres: ["Action RPG", "Souls-like", "Open World"],
-    rating: 9.6,
-    hours: 142,
-    lastPlayed: "2 hours ago",
-    status: "recent",
-    favorite: true,
-    featured: true,
-    art: { from: "#7c4a0b", to: "#2a1408", glow: "#f59e0b" },
-  },
-  {
-    id: "hades-2",
-    title: "Hades II",
-    studio: "Supergiant Games",
-    year: 2025,
-    genres: ["Roguelike", "Action"],
-    rating: 9.2,
-    hours: 68,
-    lastPlayed: "Yesterday",
-    status: "recent",
-    favorite: true,
-    featured: true,
-    art: { from: "#4c1d95", to: "#1e1b4b", glow: "#a78bfa" },
-  },
-  {
-    id: "bg3",
-    title: "Baldur's Gate 3",
-    studio: "Larian Studios",
-    year: 2023,
-    genres: ["CRPG", "Turn-based", "Fantasy"],
-    rating: 9.8,
-    hours: 214,
-    lastPlayed: "Last week",
-    status: "complete",
-    favorite: true,
-    featured: true,
-    art: { from: "#7f1d1d", to: "#3f0d12", glow: "#f87171" },
-  },
-  {
-    id: "silent-hill-2",
-    title: "Silent Hill 2",
-    studio: "Bloober Team",
-    year: 2024,
-    genres: ["Horror", "Survival"],
-    rating: 8.9,
-    hours: 31,
-    lastPlayed: "New arrival",
-    status: "new",
-    featured: true,
-    art: { from: "#44403c", to: "#1c1917", glow: "#fda4af" },
-    favorite: false
-  },
-  {
-    id: "cyberpunk-2077",
-    title: "Cyberpunk 2077",
-    studio: "CD Projekt Red",
-    year: 2020,
-    genres: ["RPG", "Open World", "Sci-fi"],
-    rating: 8.8,
-    hours: 96,
-    lastPlayed: "3 days ago",
-    status: "recent",
-    art: { from: "#0e7490", to: "#083344", glow: "#facc15" },
-    favorite: false
-  },
-  {
-    id: "stardew-valley",
-    title: "Stardew Valley",
-    studio: "ConcernedApe",
-    year: 2016,
-    genres: ["Farming Sim", "Cozy", "Pixel"],
-    rating: 9.4,
-    hours: 310,
-    lastPlayed: "2 weeks ago",
-    status: "complete",
-    favorite: true,
-    art: { from: "#15803d", to: "#052e16", glow: "#86efac" },
-  },
-  {
-    id: "silksong",
-    title: "Hollow Knight: Silksong",
-    studio: "Team Cherry",
-    year: 2025,
-    genres: ["Metroidvania", "Platformer"],
-    rating: 9.3,
-    hours: 41,
-    lastPlayed: "5 days ago",
-    status: "recent",
-    art: { from: "#155e75", to: "#083344", glow: "#67e8f9" },
-    favorite: false
-  },
-  {
-    id: "doom-dark-ages",
-    title: "DOOM: The Dark Ages",
-    studio: "id Software",
-    year: 2025,
-    genres: ["FPS", "Action"],
-    rating: 8.7,
-    hours: 24,
-    lastPlayed: "New arrival",
-    status: "new",
-    art: { from: "#991b1b", to: "#450a0a", glow: "#fbbf24" },
-    favorite: false
-  },
-  {
-    id: "disco-elysium",
-    title: "Disco Elysium",
-    studio: "ZA/UM",
-    year: 2019,
-    genres: ["CRPG", "Detective", "Narrative"],
-    rating: 9.5,
-    hours: 58,
-    lastPlayed: "1 month ago",
-    status: "complete",
-    art: { from: "#374151", to: "#111827", glow: "#d1d5db" },
-    favorite: false
-  },
-  {
-    id: "sekiro",
-    title: "Sekiro: Shadows Die Twice",
-    studio: "FromSoftware",
-    year: 2019,
-    genres: ["Action", "Souls-like"],
-    rating: 9.4,
-    hours: 88,
-    lastPlayed: "2 months ago",
-    status: "complete",
-    favorite: true,
-    art: { from: "#86198f", to: "#4a044e", glow: "#e879f9" },
-  },
-  {
-    id: "rdr2",
-    title: "Red Dead Redemption 2",
-    studio: "Rockstar Games",
-    year: 2018,
-    genres: ["Adventure", "Open World"],
-    rating: 9.7,
-    hours: 187,
-    lastPlayed: "3 weeks ago",
-    status: "complete",
-    art: { from: "#92400e", to: "#451a03", glow: "#fcd34d" },
-    favorite: false
-  },
-  {
-    id: "celeste",
-    title: "Celeste",
-    studio: "Maddy Makes Games",
-    year: 2018,
-    genres: ["Platformer", "Precision"],
-    rating: 9.1,
-    hours: 34,
-    lastPlayed: "1 month ago",
-    status: "complete",
-    art: { from: "#1d4ed8", to: "#172554", glow: "#93c5fd" },
-    favorite: false
-  },
-  {
-    id: "witcher-3",
-    title: "The Witcher 3: Wild Hunt",
-    studio: "CD Projekt Red",
-    year: 2015,
-    genres: ["RPG", "Open World", "Fantasy"],
-    rating: 9.6,
-    hours: 226,
-    lastPlayed: "2 months ago",
-    status: "complete",
-    favorite: true,
-    art: { from: "#065f46", to: "#022c22", glow: "#6ee7b7" },
-  },
-  {
-    id: "factorio",
-    title: "Factorio",
-    studio: "Wube Software",
-    year: 2020,
-    genres: ["Automation", "Building"],
-    rating: 9.3,
-    hours: 321,
-    lastPlayed: "Last week",
-    status: "recent",
-    favorite: true,
-    art: { from: "#b45309", to: "#431407", glow: "#fdba74" },
-  },
-  {
-    id: "portal-2",
-    title: "Portal 2",
-    studio: "Valve",
-    year: 2011,
-    genres: ["Puzzle", "Sci-fi"],
-    rating: 9.5,
-    hours: 19,
-    lastPlayed: "3 months ago",
-    status: "complete",
-    art: { from: "#ca8a04", to: "#422006", glow: "#fde047" },
-    favorite: false
-  },
-  {
-    id: "blue-prince",
-    title: "Blue Prince",
-    studio: "Dogubomb",
-    year: 2025,
-    genres: ["Puzzle", "Roguelite", "Mystery"],
-    rating: 9.0,
-    hours: 22,
-    lastPlayed: "New arrival",
-    status: "new",
-    art: { from: "#0369a1", to: "#082f49", glow: "#7dd3fc" },
-    favorite: false
+    id: "pes-2013",
+    title: "Pro Evolution Soccer 2013",
+    studio: "Konami",
+    year: 2012,
+    genres: ["Sports", "Football"],
+    rating: 8.4,
+    favorite: false,
+    recommended: true,
+    cover: "/covers/pes-2013.webp",
+    coverLandscape: "/covers/pes-2013-wide.webp",
+    link: "https://pes13.optijuegos.net/pes13",
+    art: { from: "#166534", to: "#052e16", glow: "#4ade80" },
   },
 ];
-
-export const STATUS_LABEL: Record<GameStatus, string> = {
-  recent: "Recently played",
-  new: "New",
-  complete: "100% complete",
-  backlog: "Backlog",
-};

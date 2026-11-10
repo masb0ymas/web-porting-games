@@ -31,7 +31,7 @@ export function SearchIcon(props: IconProps) {
   return (
     <svg {...svgProps(props)}>
       <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
+      <path d="m21 21-4.35-4.35" />
     </svg>
   );
 }
@@ -44,19 +44,19 @@ export function PlayIcon(props: IconProps) {
   );
 }
 
-export function StarIcon(props: IconProps) {
+export function PauseIcon(props: IconProps) {
   return (
-    <svg {...svgProps({ fill: "currentColor", stroke: "none", ...props })}>
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    <svg {...svgProps(props)}>
+      <rect x="6" y="4" width="4" height="16" rx="1" />
+      <rect x="14" y="4" width="4" height="16" rx="1" />
     </svg>
   );
 }
 
-export function ClockIcon(props: IconProps) {
+export function StarIcon(props: IconProps) {
   return (
-    <svg {...svgProps(props)}>
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
+    <svg {...svgProps({ fill: "currentColor", stroke: "none", ...props })}>
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
   );
 }
