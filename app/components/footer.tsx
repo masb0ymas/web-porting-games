@@ -16,17 +16,17 @@ export function Footer() {
               <GamepadIcon className="h-4 w-4" />
             </span>
             <span className="font-display text-sm tracking-wide text-white">
-              MONTARA<span className="text-accent">GAMES</span>
+              RECOMP<span className="text-accent">GAMES</span>
             </span>
           </div>
 
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-6">
+            <ul className="flex flex-wrap gap-x-1 gap-y-1">
               {FOOTER_LINKS.map(({ label, href }) => (
                 <li key={label}>
                   <a
                     href={href}
-                    className="cursor-pointer text-sm text-muted transition-colors duration-200 hover:text-accent"
+                    className="inline-flex min-h-9 cursor-pointer items-center rounded-md px-2 text-sm text-muted transition-colors duration-200 hover:bg-white/5 hover:text-accent"
                   >
                     {label}
                   </a>
@@ -36,7 +36,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <p className="mt-8 text-xs leading-relaxed text-muted/70">
+        <p className="mt-8 max-w-[70ch] text-xs leading-relaxed text-muted">
           Demo UI for the port-to-web project. Game data is mock data — layout and interaction
           inspired by the Steam™ library experience. Not affiliated with Valve Corporation.
         </p>
